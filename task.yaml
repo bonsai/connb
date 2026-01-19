@@ -1,0 +1,60 @@
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - npm install
+
+  build:
+    deps:
+      - install
+    cmds:
+      - npm run build
+
+  lint:
+    deps:
+      - install
+    cmds:
+      - npm run lint --if-present
+
+  typecheck:
+    deps:
+      - install
+    cmds:
+      - npm run typecheck --if-present
+
+  test:
+    deps:
+      - install
+    cmds:
+      - npm run test --if-present
+
+  dev:
+    deps:
+      - install
+    cmds:
+      - npm run dev --if-present
+
+  start:
+    deps:
+      - install
+    cmds:
+      - npm run start --if-present
+
+  format:
+    deps:
+      - install
+    cmds:
+      - npm run format --if-present
+
+  clean:
+    cmds:
+      - node -e "require('fs').rmSync('dist',{recursive:true,force:true})"
+
+  ci:
+    deps:
+      - clean
+      - build
+      - lint
+      - typecheck
+      - test
