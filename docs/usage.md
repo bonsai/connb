@@ -3,16 +3,24 @@
 ## CLI
 
 ```bash
+bun run start search "Rust"
+bun run start search --ym 202602
+bun run start search --this-week --tokyo
+bun run start search --next-week --tokyo
+bun run start search --nickname foo
+bun run start search --owner-nickname foo
+bun run start search --count 20 --order 2
+bun run start search --json
+bun run start bookmark
+bun run start bookmark open
+```
+
+グローバルに使いたい場合は、ローカルパッケージをリンクして `connb` を呼び出します。
+
+```powershell
+bun link
+bun link connb
 connb search "Rust"
-connb search --ym 202602
-connb search --this-week --tokyo
-connb search --next-week --tokyo
-connb search --nickname foo
-connb search --owner-nickname foo
-connb search --count 20 --order 2
-connb search --json
-connb bookmark
-connb bookmark open
 ```
 
 ## Auth
@@ -28,6 +36,20 @@ $env:CONNPASS_API_KEY = "YOUR_API_KEY"
 ```powershell
 $env:CONNPASS_API_KEY_HEADER = "X-API-KEY"
 $env:CONNPASS_API_AUTH_SCHEME = "Bearer"
+```
+
+## Taskfile
+
+`task` コマンドは go-task の CLI です。未インストールの場合は以下で導入します。
+
+```powershell
+winget install --id Task.Task
+```
+
+導入後は次のように実行できます。
+
+```powershell
+task cli -- search "Rust"
 ```
 
 ## Planned
