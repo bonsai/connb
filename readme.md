@@ -51,7 +51,6 @@ bun run start search --help
 
 ```powershell
 bun link
-bun link connb
 connb search "Rust"
 ```
 

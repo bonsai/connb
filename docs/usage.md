@@ -19,8 +19,9 @@ bun run start bookmark open
 
 ```powershell
 bun link
-bun link connb
 connb search "Rust"
+connb search --this-week --tokyo
+connb bookmark open
 ```
 
 ## Auth
