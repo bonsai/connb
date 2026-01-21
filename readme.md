@@ -22,10 +22,10 @@ git clone https://github.com/bonsai/connb.git
 cd connb
 
 # 依存関係のインストール
-npm install
+bun install
 
 # ビルド
-npm run build
+bun run build
 ```
 
 ## 使い方
@@ -45,9 +45,26 @@ connb search --ym 202602
 connb search --help
 ```
 
+詳細は docs/usage.md を参照してください。
+
+### 認証
+
+connpass API v2 が認証を求める場合は、環境変数で API キーを設定してください。
+
+```powershell
+$env:CONNPASS_API_KEY = "YOUR_API_KEY"
+```
+
+任意のヘッダー名やスキームを指定できます。
+
+```powershell
+$env:CONNPASS_API_KEY_HEADER = "X-API-KEY"
+$env:CONNPASS_API_AUTH_SCHEME = "Bearer"
+```
+
 ### 2. MCP サーバー
 
-AI エージェントと連携させるための設定です。事前に `npm run build` を実行して `dist/index.js` が生成されている状態にしてください。
+AI エージェントと連携させるための設定です。事前に `bun run build` を実行して `dist/index.js` が生成されている状態にしてください。
 
 #### Claude Desktop 設定
 
@@ -72,6 +89,10 @@ AI エージェントと連携させるための設定です。事前に `npm ru
 ## 開発環境
 
 - 言語: TypeScript
+
+## ドキュメント
+
+- docs/README.md
 
 ## 作者
 

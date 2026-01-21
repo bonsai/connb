@@ -138,4 +138,3 @@ src/
 3. `SearchEventsUseCase` を実装し、テストで固定
 4. `EventFormatter` を実装し、CLI から呼べるようにする
 5. MCP サーバーの tool 定義と handler を追加
-

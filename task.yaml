@@ -3,49 +3,43 @@ version: '3'
 tasks:
   install:
     cmds:
-      - npm install
+      - bun install --force --no-save --no-cache --backend=copyfile --linker=hoisted
 
   build:
     deps:
       - install
     cmds:
-      - npm run build
+      - bun run build
 
   lint:
     deps:
       - install
     cmds:
-      - npm run lint --if-present
+      - bun run lint
 
   typecheck:
     deps:
       - install
     cmds:
-      - npm run typecheck --if-present
+      - bun run typecheck
 
   test:
     deps:
       - install
     cmds:
-      - npm run test --if-present
+      - bun run test
 
   dev:
     deps:
       - install
     cmds:
-      - npm run dev --if-present
+      - bun run dev
 
   start:
     deps:
       - install
     cmds:
-      - npm run start --if-present
-
-  format:
-    deps:
-      - install
-    cmds:
-      - npm run format --if-present
+      - bun run start
 
   clean:
     cmds:
