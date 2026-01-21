@@ -36,16 +36,23 @@ bun run build
 
 ```bash
 # キーワード「Rust」で検索
-connb search "Rust"
+bun run start search "Rust"
 
 # 特定の年月を指定して検索
-connb search --ym 202602
+bun run start search --ym 202602
 
 # 利用可能なオプションを確認
-connb search --help
+bun run start search --help
 ```
 
 詳細は docs/usage.md を参照してください。
+
+グローバルに使いたい場合は、ローカルパッケージをリンクして `connb` を呼び出します。
+
+```powershell
+bun link
+connb search "Rust"
+```
 
 ### 認証
 
@@ -60,6 +67,20 @@ $env:CONNPASS_API_KEY = "YOUR_API_KEY"
 ```powershell
 $env:CONNPASS_API_KEY_HEADER = "X-API-KEY"
 $env:CONNPASS_API_AUTH_SCHEME = "Bearer"
+```
+
+### Taskfile
+
+`task` コマンドは go-task の CLI です。未インストールの場合は以下で導入します。
+
+```powershell
+winget install --id Task.Task
+```
+
+導入後は次のように実行できます。
+
+```powershell
+task cli -- search "Rust"
 ```
 
 ### 2. MCP サーバー

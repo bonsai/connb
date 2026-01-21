@@ -41,6 +41,12 @@ tasks:
     cmds:
       - bun run start
 
+  cli:
+    deps:
+      - build
+    cmds:
+      - bun run start {{.CLI_ARGS}}
+
   clean:
     cmds:
       - node -e "require('fs').rmSync('dist',{recursive:true,force:true})"
